@@ -25,14 +25,48 @@ Things you may want to cover:
 
 # DB設計
 
+## usersテーブル
+
+|colum|type|options|
+|-----|----|-------|
+|name|string|null: false, unique :true, add_index|
+|email|string|null: false, unique :true|
+
+### Association
+- has_many :messages
+- has_many :groups, through: :group_users
+- has_many :group_users
+
 ## messagesテーブル
 
 |colum|type|options|
 |-----|----|-------|
 |body|text|null: false|
-|image|string|null|
+|image|string||
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
+## groupsテーブル
+
+|colum|type|options|
+|-----|----|-------|
+|name|string|null: false, unique: true|
+
+### Association
+- has_many :users, through: :group_users
+- has_many :messages
+- has_many :messages
+
+## group_usersテーブル
+
+|colum|type|options|
+|-----|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
