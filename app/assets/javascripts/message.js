@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
 
   function buildHTML(message){
     var content = message.is_content_present ? `${message.content} ` : ''
