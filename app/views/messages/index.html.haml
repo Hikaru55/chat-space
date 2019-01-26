@@ -5,7 +5,7 @@
     .main-contents__header__group
       = @group.name
       .main-contents__header__group__edit
-        edit
+        = link_to "編集", edit_group_path(@group.id)
     .main-contents__header__members
       メンバー
   .main-contents__body
