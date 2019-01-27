@@ -43,6 +43,11 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.9.0"
   gem 'rails-i18n'
   gem 'faker'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
